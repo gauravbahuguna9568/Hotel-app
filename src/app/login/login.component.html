@@ -1,0 +1,24 @@
+<form (ngSubmit)="authenticate()" class="was-validated " #flog=ngForm>
+    <h4>{{popup}}</h4>
+    <label >Username</label>
+    <input type="text" name="username" [(ngModel)]="cred.username" #uname=ngModel class="form-control is-valid " required pattern="[A-Za-z]{4,}" > <br>
+    <div class="invalid-feedback" *ngIf="uname.dirty && uname.invalid">Username cannot be empty</div>
+    <label for="">Password</label> 
+    <input type="password" name="password" #pass=ngModel [(ngModel)]="cred.password" class="form-control is-valid" required pattern="[A-Za-z0-9]{4,}" > <br>
+    <div class="invalid-feedback" *ngIf="pass.dirty && pass.invalid">Password cannot be empty</div>
+ 
+    <label for="">Role</label>
+    <select name="role" [(ngModel)]="cred.role" class="form-control">
+        <option for *ngFor="let r of roles" [value]="r" >{{r}}</option>
+        
+    </select> <br>
+    <button type="submit" class="btn btn-primary" [disabled]="!flog.valid">Login</button>
+</form>
+<hr>
+<div [hidden]="!flag">
+
+    username: {{cred.username}} <br>
+    password:{{cred.password}} <br>
+    role:{{cred.role}}
+</div>
+
