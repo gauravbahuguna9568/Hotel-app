@@ -25,13 +25,13 @@ authenticate(){
     localStorage.setItem("Role", this.cred.role);
     
     if(this.cred.role === 'User'){
-      this.route.navigate(['user']);
+      this.route.navigate(['home']);
     }
     else if (this.cred.role === 'Admin'){
       this.route.navigate(['admin']);
     }
     else if (this.cred.role === 'Guest'){
-      this.route.navigate(['guest']);
+      this.route.navigate(['home']);
     }
     
   }
