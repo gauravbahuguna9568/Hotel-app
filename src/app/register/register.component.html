@@ -1,3 +1,14 @@
-<form >
+<form (ngSubmit)="save()" #addf="ngForm">
     <label for="">Name:</label>
+    <input type="text" name="uname" id="" [(ngModel)]="detail.username">
+    <br>
+    <label for="">Password:</label>
+    <input type="text" name="uname" id="" [(ngModel)]="detail.password">
+    <br>
+    <label for="">Role:</label>
+    <select name="role" id="" [(ngModel)]="detail.role">
+        <option *ngFor="let p of role" [value]="p">{{p}}</option>
+    </select>
+    
+    <button type="submit" [disabled]="!addf.valid">Submit</button>
 </form>
